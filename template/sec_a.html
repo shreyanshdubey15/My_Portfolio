@@ -1,0 +1,57 @@
+<section id="home" class="relative min-h-[95vh] overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0">
+      <img
+        src="{{ url_for('static', filename='assets/shreyansh_home_page.png') }}"
+        alt="Hero Background"
+        class="w-full h-full object-cover"
+      />
+      <!-- readability overlays -->
+      <div class="absolute inset-0 bg-black/35"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+    </div>
+  
+    <!-- Top bar -->
+    <div class="relative z-10 px-6 md:px-14 py-6 flex items-center justify-between">
+      <div class="font-mono text-xs md:text-sm text-white/80">
+        $ python -m shreyansh.build --clean --fast --reliable
+      </div>
+  
+      <nav class="flex items-center gap-5 text-xs md:text-sm text-white/80">
+        <a href="#whoami" class="hover:text-lime-300">Who Am I</a>
+        <a href="#projects" class="hover:text-lime-300">View Projects</a>
+        <a href="#resume" class="hover:text-lime-300">Resume</a>
+      </nav>
+    </div>
+  
+    <!-- Hero content -->
+    <div class="relative z-10 h-[calc(95vh-72px)] px-6 md:px-14 flex items-end pb-12">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight">
+          Shreyansh <span class="text-white">Dubey</span>
+        </h1>
+  
+        <p class="mt-4 text-white/75 text-base md:text-lg">
+          Python Developer (Fresher) • Backend • Automation • APIs
+        </p>
+  
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href="#projects"
+             class="px-5 py-3 rounded-xl bg-lime-400 text-black font-semibold hover:bg-lime-300 transition">
+            View Projects
+          </a>
+  
+          <a href="#whoami"
+             class="px-5 py-3 rounded-xl border border-lime-400/35 text-white hover:border-lime-400 transition">
+            Who Am I
+          </a>
+        </div>
+  
+        <div class="mt-10 text-white/60 text-sm flex items-center gap-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-lime-400"></span>
+          Scroll for more
+        </div>
+      </div>
+    </div>
+  </section>
+  

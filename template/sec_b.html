@@ -1,0 +1,218 @@
+<section id="whoami" class="relative px-6 md:px-14 py-20">
+    <div class="max-w-6xl mx-auto">
+  
+      <div class="flex items-end justify-between gap-6 mb-8">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold">Who Am I</h2>
+          <p class="text-white/60 mt-2">Drag the cards. Or use Next/Prev.</p>
+        </div>
+  
+        <div class="flex gap-2">
+          <button id="prevCard"
+            class="px-4 py-2 rounded-lg border border-white/15 hover:border-lime-400/40 transition">
+            Prev
+          </button>
+          <button id="nextCard"
+            class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/15 transition">
+            Next
+          </button>
+        </div>
+      </div>
+  
+      <!-- Stage -->
+      <div id="stage"
+        class="relative w-full h-[560px] rounded-3xl border border-white/10 overflow-hidden bg-white/5">
+  
+        <div class="pointer-events-none absolute -inset-40 bg-lime-400/10 blur-3xl"></div>
+  
+        <!-- Card 1 -->
+        <div class="card" style="z-index: 6;">
+          <img src="{{ url_for('static', filename='assets/my_photo.png') }}" class="bg-image" alt="bg" />
+          <h3 class="text-2xl font-bold mb-2">Shreyansh Dubey</h3>
+          <p class="text-white/70">Python Developer (Fresher)</p>
+          <div class="page-number">Page 1</div>
+          <div class="drag-hint">⇠ Drag ⇢</div>
+        </div>
+  
+        <!-- Card 2 -->
+        <div class="card" style="z-index: 5;">
+          <p class="text-white/80 leading-relaxed">
+            I build clean Python backends and automation tools — focusing on readable code,
+            structured APIs, and smooth user flows.
+          </p>
+          <div class="page-number">Page 2</div>
+          <div class="drag-hint">⇠ Drag ⇢</div>
+        </div>
+  
+        <!-- Card 3 -->
+        <div class="card" style="z-index: 4;">
+          <h3 class="text-lg font-semibold mb-4">What I Enjoy</h3>
+          <div class="flex flex-wrap gap-2 justify-center text-sm">
+            <span class="pill">Coding & Chai</span>
+            <span class="pill">Automation</span>
+            <span class="pill">APIs</span>
+            <span class="pill">Dashboards</span>
+            <span class="pill">Clean UI</span>
+          </div>
+          <div class="page-number">Page 3</div>
+          <div class="drag-hint">⇠ Drag ⇢</div>
+        </div>
+  
+        <!-- Card 4 -->
+        <div class="card" style="z-index: 3;">
+          <h3 class="text-xl font-bold mb-2">🔮 Future Vision</h3>
+          <p class="text-white/80 leading-relaxed">
+            I want to grow into building scalable products: well-tested Python services,
+            database-driven apps, and performance-first systems.
+          </p>
+          <div class="page-number">Page 4</div>
+          <div class="drag-hint">⇠ Drag ⇢</div>
+        </div>
+  
+        <!-- Card 5 -->
+        <div class="card" style="z-index: 2;">
+          <h3 class="text-xl font-bold mb-2">📬 Contact</h3>
+          <p class="text-white/80 leading-relaxed">
+            Email: <span class="text-lime-300">sadubey1122@gmail.com</span><br/>
+            LinkedIn: <span class="text-lime-300">/in/shreyanshdubey</span>
+          </p>
+          <div class="page-number">Page 5</div>
+          <div class="drag-hint">⇠ Drag ⇢</div>
+        </div>
+  
+      </div>
+    </div>
+  
+    <style>
+      /* Cards live INSIDE the stage */
+      .card{
+        width: 260px;
+        height: 350px;
+        padding: 20px;
+        border-radius: 18px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+        color: white;
+  
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+  
+        background: rgba(18, 18, 18, 0.70);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(163, 230, 53, 0.18);
+  
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+  
+        transition: opacity 0.6s ease;
+        opacity: 0;
+        cursor: grab;
+        user-select: none;
+      }
+      .card.loaded { opacity: 1; }
+  
+      .bg-image{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        opacity:0.18;
+        z-index:-1;
+        border-radius:18px;
+      }
+      .page-number{
+        position:absolute;
+        bottom:10px;
+        left:14px;
+        font-size:0.75rem;
+        color:rgba(255,255,255,0.55);
+      }
+      .drag-hint{
+        position:absolute;
+        bottom:10px;
+        right:14px;
+        font-size:0.75rem;
+        color:rgba(255,255,255,0.45);
+      }
+      .pill{
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.20);
+        background: rgba(0,0,0,0.30);
+      }
+    </style>
+  
+    <script>
+      const stage = document.getElementById('stage');
+      const cards = Array.from(stage.querySelectorAll('.card'));
+      let zBase = 10;
+  
+      // Fade in cards
+      cards.forEach((card, i) => setTimeout(() => card.classList.add('loaded'), i * 120));
+  
+      // Drag inside stage bounds
+      cards.forEach(card => {
+        let isDragging = false;
+        let offsetX = 0, offsetY = 0;
+  
+        card.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          card.style.cursor = 'grabbing';
+  
+          const cardRect = card.getBoundingClientRect();
+          offsetX = e.clientX - cardRect.left;
+          offsetY = e.clientY - cardRect.top;
+  
+          zBase++;
+          card.style.zIndex = zBase;
+  
+          // When you start dragging, stop centering transform
+          if (card.style.transform.includes('-50%')) {
+            const stageRect = stage.getBoundingClientRect();
+            const x = (cardRect.left - stageRect.left);
+            const y = (cardRect.top - stageRect.top);
+            card.style.left = x + 'px';
+            card.style.top  = y + 'px';
+            card.style.transform = 'translate(0,0)';
+          }
+        });
+  
+        document.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+  
+          const stageRect = stage.getBoundingClientRect();
+          const x = e.clientX - stageRect.left - offsetX;
+          const y = e.clientY - stageRect.top - offsetY;
+  
+          const maxX = stage.clientWidth - card.offsetWidth;
+          const maxY = stage.clientHeight - card.offsetHeight;
+  
+          card.style.left = Math.max(0, Math.min(x, maxX)) + 'px';
+          card.style.top  = Math.max(0, Math.min(y, maxY)) + 'px';
+        });
+  
+        document.addEventListener('mouseup', () => {
+          if (!isDragging) return;
+          isDragging = false;
+          card.style.cursor = 'grab';
+        });
+      });
+  
+      // Next/Prev alternative (so it’s not drag-only)
+      let activeIndex = 0;
+      function bringToFront(i){
+        activeIndex = (i + cards.length) % cards.length;
+        zBase++;
+        cards[activeIndex].style.zIndex = zBase;
+      }
+  
+      document.getElementById('nextCard').addEventListener('click', () => bringToFront(activeIndex + 1));
+      document.getElementById('prevCard').addEventListener('click', () => bringToFront(activeIndex - 1));
+    </script>
+  </section>
+  

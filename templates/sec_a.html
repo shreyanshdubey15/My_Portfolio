@@ -1,0 +1,54 @@
+<section id="home" class="relative min-h-[95vh] overflow-x-hidden">
+    <!-- BG -->
+    <div class="absolute inset-0">
+      <img
+        src="{{ url_for('static', filename='assets/shreyansh_home_page.png') }}"
+        alt="Hero background"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black/35"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+    </div>
+  
+
+    <!-- Hero text -->
+    <div class="relative z-10 h-[calc(95vh-150px)] px-6 md:px-14 flex items-end pb-12">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight">
+          Shreyansh <span class="text-white">Dubey</span>
+        </h1>
+  
+        <p class="mt-4 text-white/75 text-base md:text-lg">
+          Python Developer (Fresher) • Backend • Automation • APIs
+        </p>
+  
+        <div class="mt-7 flex flex-wrap gap-3">
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#whoami" class="btn-secondary">Who Am I</a>
+        </div>
+  
+        
+      </div>
+    </div>
+    <!-- Status strip -->
+  <!-- Status strip (BOTTOM RIGHT) -->
+    <div class="absolute bottom-6 right-6 z-10">
+        <div class="status-strip px-5" style="width: fit-content; max-width: 92vw;">
+        <div class="flex items-center gap-2">
+            <span class="dot-online"></span>
+            <span class="text-white/80">Status:</span>
+            <span class="text-lime-300 font-semibold">ONLINE</span>
+        </div>
+    </div>
+  </div>
+  
+      <!-- Scroll indicator (bottom center) -->
+<a href="#whoami" class="scroll-indicator" aria-label="Scroll to next section">
+    <span class="scroll-mouse">
+      <span class="scroll-dot"></span>
+    </span>
+    <span class="scroll-text">Scroll</span>
+  </a>
+  
+  </section>
+  

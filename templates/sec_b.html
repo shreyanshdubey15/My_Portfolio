@@ -1,0 +1,73 @@
+<section id="whoami" class="relative px-6 md:px-14 py-20 border-t border-white/10">
+    <div class="max-w-6xl mx-auto">
+  
+      <div class="flex items-end justify-between gap-6 mb-8">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold">Who Am I</h2>
+          <p class="text-white/60 mt-2">Drag the cards. Or use Next/Prev.</p>
+        </div>
+  
+        <div class="flex gap-2">
+          <button id="prevCard" class="btn-ghost">Prev</button>
+          <button id="nextCard" class="btn-ghost-fill">Next</button>
+          <button id="resetCards" class="btn-ghost">Reset</button>
+        </div>
+      </div>
+  
+      <div id="stage" class="stage">
+        <div class="pointer-events-none absolute -inset-40 bg-lime-400/10 blur-3xl"></div>
+  
+        <div class="card" style="z-index: 6;">
+          <img src="{{ url_for('static', filename='assets/my_photo.png') }}" class="bg-image" alt="bg" />
+          <h3 class="text-2xl font-bold mb-2">Shreyansh Dubey</h3>
+          <p class="text-white/70">Python Developer (Fresher)</p>
+          <div class="page-number">Page 1</div>
+          <div class="drag-hint">⇠ Drag ⇢</div>
+        </div>
+  
+        <div class="card" style="z-index: 5;">
+          <p class="text-white/80 leading-relaxed">
+            I build clean Python backends and automation tools — structured APIs, readable code,
+            and smooth workflows.
+          </p>
+          <div class="page-number">Page 2</div>
+          <div class="drag-hint">⇠ Drag ⇢</div>
+        </div>
+  
+        <div class="card" style="z-index: 4;">
+          <h3 class="text-lg font-semibold mb-4">What I Enjoy</h3>
+          <div class="flex flex-wrap gap-2 justify-center text-sm">
+            <span class="pill">Coding & Chai</span>
+            <span class="pill">Automation</span>
+            <span class="pill">APIs</span>
+            <span class="pill">Dashboards</span>
+            <span class="pill">Clean UI</span>
+          </div>
+          <div class="page-number">Page 3</div>
+          <div class="drag-hint">⇠ Drag ⇢</div>
+        </div>
+  
+        <div class="card" style="z-index: 3;">
+          <h3 class="text-xl font-bold mb-2">🔮 Future Vision</h3>
+          <p class="text-white/80 leading-relaxed">
+            Grow into scalable systems: better testing, Docker, clean database design,
+            and performance-first Python services.
+          </p>
+          <div class="page-number">Page 4</div>
+          <div class="drag-hint">⇠ Drag ⇢</div>
+        </div>
+  
+        <div class="card" style="z-index: 2;">
+          <h3 class="text-xl font-bold mb-2">📬 Contact</h3>
+          <p class="text-white/80 leading-relaxed">
+            Email: <span class="text-lime-300">sadubey1122@gmail.com</span><br/>
+            LinkedIn: <span class="text-lime-300">/in/shreyanshdubey</span>
+          </p>
+          <div class="page-number">Page 5</div>
+          <div class="drag-hint">⇠ Drag ⇢</div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shreyansh Dubey | Python Developer</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style> html { scroll-behavior: smooth; } </style>
+</head>
+
+<body class="bg-[#050505] text-white overflow-x-hidden">
+
+    <!-- Sticky nav (same style as your current one) -->
+    {% include "sticky_nav.html" %}
+  
+    {% include "sec_a.html" %}
+    {% include "sec_b.html" %}
+    {% include "sec_c.html" %}
+  
+    <script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+  </body>
+  
+</html>

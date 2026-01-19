@@ -1,0 +1,91 @@
+<section id="skills" class="px-6 md:px-14 py-20 border-t border-white/10">
+    <div class="max-w-6xl mx-auto">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold">Skills Modules</h2>
+        <p class="text-white/60 mt-2">Click a module to open details + proof link.</p>
+      </div>
+  
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <button class="module-card" data-module="api" type="button">
+          <div class="module-title">module.api</div>
+          <div class="module-sub">Flask/FastAPI • auth • validation</div>
+        </button>
+  
+        <button class="module-card" data-module="db" type="button">
+          <div class="module-title">module.db</div>
+          <div class="module-sub">MySQL/Postgres • schema • joins</div>
+        </button>
+  
+        <button class="module-card" data-module="automation" type="button">
+          <div class="module-title">module.automation</div>
+          <div class="module-sub">scripts • schedulers • CLI tools</div>
+        </button>
+      </div>
+  
+      <div id="modulePanel" class="module-panel hidden" aria-live="polite">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <div id="modulePanelTitle" class="text-xl font-bold"></div>
+            <div id="modulePanelBody" class="text-white/70 mt-2"></div>
+            <a id="moduleProofLink" href="#" target="_blank" class="inline-block mt-4 text-lime-300 hover:underline">
+              Proof link →
+            </a>
+          </div>
+          <button id="closeModule" class="btn-ghost" type="button">Close</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="px-6 md:px-14 py-20 border-t border-white/10">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold">Debug Log</h2>
+      <p class="text-white/60 mt-2">My growth timeline, terminal-style.</p>
+  
+      <div class="mt-10 log-panel">
+        <div class="log-line"><span class="tag info">[INFO]</span> Learned Python basics</div>
+        <div class="log-line"><span class="tag ok">[OK]</span> Built API project</div>
+        <div class="log-line"><span class="tag fix">[FIX]</span> Improved error handling</div>
+        <div class="log-line"><span class="tag next">[NEXT]</span> Testing + Docker</div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="projects" class="px-6 md:px-14 py-20 border-t border-white/10">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold">API Playground</h2>
+      <p class="text-white/60 mt-2">Click endpoints to print output.</p>
+  
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <div class="text-white/70 text-sm mb-3">Endpoints</div>
+          <div class="flex flex-col gap-2">
+            <button class="endpoint-btn" data-endpoint="projects" type="button">GET /projects</button>
+            <button class="endpoint-btn" data-endpoint="skills" type="button">GET /skills</button>
+            <button class="endpoint-btn" data-endpoint="contact" type="button">GET /contact</button>
+          </div>
+        </div>
+  
+        <div class="lg:col-span-2 rounded-2xl border border-white/10 bg-black/60 p-5">
+          <div class="font-mono text-xs text-white/60 mb-3">terminal.output</div>
+          <pre id="apiOutput" class="font-mono text-sm whitespace-pre-wrap text-white/85">Click an endpoint...</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="contact" class="px-6 md:px-14 py-20 border-t border-white/10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold">Let’s Connect</h2>
+        <p class="text-white/60 mt-2">Open to internship / junior Python roles.</p>
+      </div>
+  
+      <div class="flex flex-wrap gap-3">
+        <a class="btn-primary" href="mailto:sadubey1122@gmail.com">Email Me</a>
+        <a class="btn-secondary" href="#" target="_blank">GitHub</a>
+        <a class="btn-secondary" href="#" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+  
